@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/keyline_space_grid_9"
+    android:layout_marginEnd="@dimen/keyline_space_grid_9"
+    android:layout_marginStart="@dimen/keyline_space_grid_9"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="@dimen/keyline_space_grid_16">
+
+    <include layout="@layout/table_row_item" />
+
+</android.support.v7.widget.CardView>

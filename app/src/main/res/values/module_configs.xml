@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- LAUNCHER -->
+    <!-- host -->
+    <string name="module_config_name_launcher">launcher</string>
+
+    <!-- START -->
+    <!-- host -->
+    <string name="module_config_name_startpage">startpage</string>
+
+</resources>

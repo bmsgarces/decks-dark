@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="inc.bizties.fifferz">
+
+    <application
+        android:name="inc.bizties.fifferz.FifferzApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="inc.bizties.fifferz.activities.LauncherActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/app_config_scheme" />
+                <data android:host="@string/module_config_name_launcher" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".components.FifferzActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="@string/app_config_scheme"/>
+                <data android:host="@string/module_config_name_startpage"/>
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".data.provider.DataProvider"
+            android:authorities="${applicationId}"
+            android:exported="false"
+            tools:replace="android:authorities" />
+    </application>
+
+</manifest>

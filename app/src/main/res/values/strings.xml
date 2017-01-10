@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Fifferz</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="table">Table</string>
+    <string name="player_name">Player name</string>
+    <string name="score">Score</string>
+    <string name="number_of_matches">Matches</string>
+
+    <!-- Actions -->
+    <string name="action_delete_player">Delete</string>
+    <string name="action_confirm">Confirm</string>
+
+    <!-- Table header -->
+    <string name="position">Pos</string>
+    <string name="player">Player</string>
+    <string name="matches">M</string>
+    <string name="points">P</string>
+
+    <!-- Info messages -->
+    <string name="no_info_available">No info available</string>
+
+    <!-- Snack bar -->
+    <string name="invalid_name">Name cannot be empty</string>
+    <string name="invalid_score">Score must be a multiple of the number 3</string>
+    <string name="invalid_score_match_combination">Invalid score and matches combination</string>
+
+    <!-- Content descriptions -->
+    <string name="add_points">add_points</string>
+    <string name="sub_points">sub_points</string>
+</resources>

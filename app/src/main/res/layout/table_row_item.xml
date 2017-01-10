@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/keyline_space_grid_10"
+    android:paddingTop="@dimen/keyline_space_grid_10">
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:gravity="center_horizontal"
+        android:text="@string/position" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingEnd="0dp"
+        android:paddingStart="@dimen/keyline_space_grid_9"
+        android:text="@string/player" />
+
+    <TextView
+        android:id="@+id/number_of_matches"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:text="@string/matches" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:text="@string/points"
+        android:textStyle="bold" />
+
+</LinearLayout>
