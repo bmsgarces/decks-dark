@@ -29,7 +29,7 @@ class FifferzFragmentPresenter extends BasePresenter<FifferzFragment> {
         }
 
         if (player.getName().isEmpty()) {
-            getView().showNameError();
+            getView().showError(R.string.invalid_name);
             return;
         }
 

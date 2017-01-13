@@ -157,10 +157,6 @@ public class FifferzFragment extends BasePresenterFragment<FifferzFragmentPresen
         Snackbar.make(rootView, stringRes, Snackbar.LENGTH_LONG).show();
     }
 
-    public void showNameError() {
-        Snackbar.make(rootView, R.string.invalid_name, Snackbar.LENGTH_LONG).show();
-    }
-
     @Override
     public void onAddPoints(int position) {
         getPresenter().updatePlayer(adapter.addPoints(position));
