@@ -4,11 +4,19 @@ import java.util.List;
 
 import inc.bizties.fifferz.data.models.Player;
 
-public enum DataRepository {
-
-    INSTANCE;
+public class DataRepository {
 
     private static final String TAG = DataRepository.class.getName();
+
+    private static DataRepository mInstance;
+
+    public static DataRepository getInstance() {
+        if (mInstance == null) {
+            mInstance = new DataRepository();
+        }
+
+        return mInstance;
+    }
 
     private Cache diskCache;
 

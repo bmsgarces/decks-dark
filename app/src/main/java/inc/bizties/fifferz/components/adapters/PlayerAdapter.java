@@ -18,73 +18,74 @@ import inc.bizties.fifferz.data.models.Player;
 
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
 
-    private List<Player> collection;
-    private PlayerInteractionListener listener;
+    private List<Player> mCollection;
+    private PlayerInteractionListener mListener;
 
     public PlayerAdapter(PlayerInteractionListener listener) {
-        this.collection = new ArrayList<>();
-        this.listener = listener;
+        this.mCollection = new ArrayList<>();
+        this.mListener = listener;
     }
 
     @Override
     public PlayerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item_view, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.adapter_item_view, parent, false);
 
-        return new PlayerViewHolder(v, listener);
+        return new PlayerViewHolder(view, mListener);
     }
 
     @Override
     public void onBindViewHolder(PlayerViewHolder holder, int position) {
-        holder.onBindViewHolder(collection.get(position), position);
+        holder.onBindViewHolder(mCollection.get(position), position);
     }
 
     @Override
     public int getItemCount() {
-        return collection.size();
+        return mCollection.size();
     }
 
     public void addItem(Player player) {
-        collection.add(player);
-        Collections.sort(collection, new TableComparator());
+        mCollection.add(player);
+        Collections.sort(mCollection, new TableComparator());
         notifyDataSetChanged();
     }
 
     public void addAll(List<Player> list) {
-        collection.addAll(list);
+        mCollection.addAll(list);
         notifyDataSetChanged();
     }
 
     public void removeItem(int position) {
-        collection.remove(position);
+        mCollection.remove(position);
         notifyItemRemoved(position);
     }
 
     public Player getItem(int position) {
-        return collection.get(position);
+        return mCollection.get(position);
     }
 
     public void clear() {
-        collection.clear();
+        mCollection.clear();
     }
 
     public Player addPoints(int position) {
-        Player player = collection.get(position);
+        Player player = mCollection.get(position);
         player.addPoints();
-        Collections.sort(collection, new TableComparator());
+        Collections.sort(mCollection, new TableComparator());
         notifyDataSetChanged();
         return player;
     }
 
     @Nullable
     public Player addMatch(int position) {
-        Player player = collection.get(position);
+        Player player = mCollection.get(position);
         player.addMatch();
-        Collections.sort(collection, new TableComparator());
+        Collections.sort(mCollection, new TableComparator());
         notifyDataSetChanged();
         return player;
     }
 
-    public class TableComparator implements Comparator<Player> {
+    private class TableComparator implements Comparator<Player> {
         @Override
         public int compare(Player o1, Player o2) {
             return o2.getScore() - o1.getScore();

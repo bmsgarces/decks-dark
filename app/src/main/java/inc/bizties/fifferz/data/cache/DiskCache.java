@@ -9,32 +9,32 @@ import inc.bizties.fifferz.data.provider.tables.PlayerTable;
 
 public class DiskCache implements Cache {
 
-    private PlayerTable playerTable;
+    private PlayerTable mPlayerTable;
 
-    private final Context context;
+    private final Context mContext;
 
     public DiskCache(Context context) {
-        this.context = context.getApplicationContext();
-        playerTable = new PlayerTable();
+        this.mContext = context.getApplicationContext();
+        mPlayerTable = new PlayerTable();
     }
 
     @Override
     public List<Player> getPlayers() {
-        return playerTable.getPlayers(context);
+        return mPlayerTable.getPlayers(mContext);
     }
 
     @Override
     public Player getPlayer(String name) {
-        return playerTable.getPlayer(context, name);
+        return mPlayerTable.getPlayer(mContext, name);
     }
 
     @Override
     public void addPlayer(Player player) {
-        playerTable.addPlayer(context, player);
+        mPlayerTable.addPlayer(mContext, player);
     }
 
     @Override
     public void removePlayer(Player player) {
-        playerTable.removePlayer(context, player);
+        mPlayerTable.removePlayer(mContext, player);
     }
 }

@@ -7,16 +7,16 @@ import inc.bizties.fifferz.data.models.Player;
 
 class FifferzFragmentPresenter extends BasePresenter<FifferzFragment> {
 
-    private DataRepository repository;
+    private DataRepository mDataRepository;
 
     void onLoad() {
-        repository = DataRepository.INSTANCE;
+        mDataRepository = DataRepository.getInstance();
 
         fetchTimelineAsync();
     }
 
     void fetchTimelineAsync() {
-        getView().displayData(repository.getPlayers());
+        getView().displayData(mDataRepository.getPlayers());
 
         getView().manageNoContent();
         getView().hideProgress();
@@ -43,7 +43,7 @@ class FifferzFragmentPresenter extends BasePresenter<FifferzFragment> {
             return;
         }
 
-        repository.addPlayer(player);
+        mDataRepository.addPlayer(player);
         fetchTimelineAsync();
     }
 

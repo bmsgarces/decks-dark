@@ -3,12 +3,12 @@ package inc.bizties.fifferz.data.provider;
 import android.content.UriMatcher;
 import android.net.Uri;
 
-import inc.bizties.fifferz.core.FifferzConfig;
+import inc.bizties.fifferz.FifferzApplication;
 import inc.bizties.fifferz.data.provider.tables.PlayerTable;
 
 public class DataProviderContract {
 
-    private static final String AUTHORITY = FifferzConfig.INSTANCE.getAppConfig().getPackageName();
+    private static final String AUTHORITY = FifferzApplication.getApp().getPackageName();
 
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
     public static final String CONTENT_BASE = "inc.bizties";
