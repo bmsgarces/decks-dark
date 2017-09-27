@@ -48,6 +48,6 @@ class FifferzFragmentPresenter extends BasePresenter<FifferzFragment> {
     }
 
     private boolean isValidPair(int score, int matches) {
-        return (score == 0 && matches == 0) || (score > 0 && matches >= score / 3);
+        return matches >= score / 3;
     }
 }

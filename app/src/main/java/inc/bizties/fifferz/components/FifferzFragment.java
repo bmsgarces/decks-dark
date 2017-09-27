@@ -127,6 +127,7 @@ public class FifferzFragment extends BasePresenterFragment<FifferzFragmentPresen
         final EditText score = (EditText) layout.findViewById(R.id.player_score);
         final EditText matches = (EditText) layout.findViewById(R.id.number_of_matches);
         final int playerId = player == null ? 0 : player.getId();
+
         if (player != null) {
             name.setText(player.getName());
             score.setText(String.valueOf(player.getScore()));
