@@ -21,10 +21,10 @@ public class PlayerViewHolder extends RecyclerView.ViewHolder implements View.On
         super(v);
         this.listener = listener;
 
-        position = (TextView) v.findViewById(R.id.position);
-        name = (TextView) v.findViewById(R.id.name);
-        score = (TextView) v.findViewById(R.id.score);
-        numberOfMatches = (TextView) v.findViewById(R.id.number_of_matches);
+        position = v.findViewById(R.id.position);
+        name = v.findViewById(R.id.name);
+        score = v.findViewById(R.id.score);
+        numberOfMatches = v.findViewById(R.id.number_of_matches);
 
         v.setOnLongClickListener(this);
     }

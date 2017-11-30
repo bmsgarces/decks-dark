@@ -46,10 +46,10 @@ public class FifferzFragment extends BasePresenterFragment<FifferzFragmentPresen
         tableHeader = rootView.findViewById(R.id.table_header);
         noContent = rootView.findViewById(R.id.view_no_content);
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recyclerView = rootView.findViewById(R.id.recyclerView);
         adapter = new PlayerAdapter(this);
 
-        swipeContainer = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeContainer);
+        swipeContainer = rootView.findViewById(R.id.swipeContainer);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -57,7 +57,7 @@ public class FifferzFragment extends BasePresenterFragment<FifferzFragmentPresen
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        FloatingActionButton fab = rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,9 +123,9 @@ public class FifferzFragment extends BasePresenterFragment<FifferzFragmentPresen
         View layout = getActivity().getLayoutInflater().inflate(R.layout.dialog_layout, null);
         builder.setView(layout);
 
-        final EditText name = (EditText) layout.findViewById(R.id.player_name);
-        final EditText score = (EditText) layout.findViewById(R.id.player_score);
-        final EditText matches = (EditText) layout.findViewById(R.id.number_of_matches);
+        final EditText name = layout.findViewById(R.id.player_name);
+        final EditText score = layout.findViewById(R.id.player_score);
+        final EditText matches = layout.findViewById(R.id.number_of_matches);
         final int playerId = player == null ? 0 : player.getId();
 
         if (player != null) {
