@@ -6,12 +6,14 @@ public class Player {
     private String name;
     private int score;
     private int numberOfMatches;
+    private double avg;
 
     public Player(int id, String name, int score, int numberOfMatches) {
         this.id = id;
         this.name = name;
         this.score = score;
         this.numberOfMatches = numberOfMatches;
+        this.avg = numberOfMatches > 0 ? (double) score / numberOfMatches : 0d;
     }
 
     public int getId() {
@@ -34,48 +36,61 @@ public class Player {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
     public void addPoints() {
         this.score += 3;
         this.numberOfMatches++;
+        this.avg = (double) score / numberOfMatches;
     }
 
     public int getNumberOfMatches() {
         return numberOfMatches;
     }
 
-    public void setNumberOfMatches(int numberOfMatches) {
-        this.numberOfMatches = numberOfMatches;
+    public double getAvg() {
+        return avg;
     }
 
     public void addMatch() {
         this.numberOfMatches++;
+        this.avg = (double) score / numberOfMatches;
     }
 
-    @SuppressWarnings("SimplifiableIfStatement")
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Player player = (Player) o;
 
-        if (id != player.id) return false;
-        if (score != player.score) return false;
-        if (numberOfMatches != player.numberOfMatches) return false;
+        if (id != player.id) {
+            return false;
+        }
+        if (score != player.score) {
+            return false;
+        }
+        if (numberOfMatches != player.numberOfMatches) {
+            return false;
+        }
+        if (Double.compare(player.avg, avg) != 0) {
+            return false;
+        }
         return name != null ? name.equals(player.name) : player.name == null;
-
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result;
+        long temp;
+        result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + score;
         result = 31 * result + numberOfMatches;
+        temp = Double.doubleToLongBits(avg);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 }

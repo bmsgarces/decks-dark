@@ -51,6 +51,8 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
     }
 
     public void addAll(List<Player> list) {
+        Collections.sort(list, new TableComparator());
+        mCollection.clear();
         mCollection.addAll(list);
         notifyDataSetChanged();
     }
@@ -85,10 +87,12 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
         return player;
     }
 
-    private class TableComparator implements Comparator<Player> {
+    public class TableComparator implements Comparator<Player> {
         @Override
-        public int compare(Player o1, Player o2) {
-            return o2.getScore() - o1.getScore();
+        public int compare(Player p1, Player p2) {
+            return p1.getAvg() > p2.getAvg() ? -1 : p1.getAvg() < p2.getAvg() ? 1
+                    : p1.getScore() > p2.getScore() ? -1 : p1.getScore() < p2.getScore() ? 1
+                            : p1.getName().compareToIgnoreCase(p2.getName());
         }
     }
 }
